@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,8 +14,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
+
+
+Route::post('lang_select', ['as' => 'lang_select', function(){
+
+    if(!empty(request()->input('language'))){
+        Session::put('new_lang', request()->input('language'));
+    };
+
+    return Redirect::back();
+}]);
+
 
 Route::resource('users', 'UserController');
 Route::resource('roles', 'RoleController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
