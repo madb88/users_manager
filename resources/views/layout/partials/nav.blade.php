@@ -15,7 +15,7 @@
         <li class="nav-item dropdown">
         {!! Form::open(['url' => array('lang_select'), 'method'=>'POST']) !!}
           {{ Form::token() }}
-          {{ Form::select('language', ['pl' => 'Polish', 'en' => 'English'], App::getLocale(), ['placeholder' => 'Language', 'onchange'=>'this.form.submit()']) }}
+          {{ Form::select('language', ['pl' => 'Polish', 'en' => 'English'], App::getLocale(), ['onchange'=>'this.form.submit()']) }}
         {!! Form::close() !!}
         </li>
       </ul>

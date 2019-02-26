@@ -8,5 +8,9 @@ return [
         'email' => 'Email',
         'password'=> 'Hasło'
         
+    ],
+
+    'custom' => [
+        'password' => ':format'
     ]
 ];

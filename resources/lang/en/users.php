@@ -2,5 +2,8 @@
 
 return [
     'users' => 'Users',
-    'create' => 'Create'
+    'create' => 'Create',
+    'user_password_check' => 'Password minimum length is 4 chars.',
+    'admin_password_check' => 'Password minimum length is 8 chars'
+
 ];

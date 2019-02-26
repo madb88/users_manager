@@ -5,8 +5,8 @@
        <div class="row">
            <h1>{{ trans('users.create')}}</h1>
         </div>
-        @if(isset($user['id']) && $user['id'] > 0){
-            {!! Form::open(['action' => ['UserController@update', $user['id'], 'method'=>'PUT']]) !!}
+        @if(isset($user['id']) && $user['id'] > 0)
+            {!! Form::open(['action' => ['UserController@update', $user['id']], 'method'=>'PATCH']) !!}
             {!! Form::hidden('id',$user['id']) !!}
         @else
             {!! Form::open(['action' => ['UserController@store','method'=>'POST']]) !!}
@@ -31,7 +31,7 @@
             {!! Form::email('email', isset($user['email']) ? $user['email']:'', array('class'=>'form-control')) !!}
 
             {!! Form::label('password', trans('general.password'),array('class'=>'control-label')) !!}
-            {!! Form::password('password', array('class'=>'form-control')) !!}
+            {!! Form::password('password',array('class'=>'form-control')) !!}
 
             {!! Form::label('re_password', trans('general.re_password'),array('class'=>'control-label')) !!}
             {!! Form::password('re_password', array('class'=>'form-control')) !!}
@@ -40,7 +40,7 @@
             {!! Form::text('twitter_handle', isset($user['twitter_handle']) ? $user['twitter_handle']:'', array('class'=>'form-control')) !!}
             
             {!! Form::label('roles', trans('general.roles'),array('class'=>'control-label')) !!}
-            {!! Form::select('role', $roles, '', ['placeholder' => 'Choose Role' ]) !!}
+            {!! Form::select('role', $roles, isset($user['role_id']) ? $user['role_id']:'', ['placeholder' => trans('users.choose_role') ]) !!}
 
 
             {!! Form::submit(trans('general.submit') ,array('class'=>'btn btn-success')) !!}
