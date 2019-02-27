@@ -128,7 +128,8 @@ return [
     */
 
     'custom' => [
-        'password' => ':format'
+        'password' => ':format',
+        'twitter_handle' => 'Twitter Handle must containt @ at the begining and max 15 characters'
     ],
 
     /*

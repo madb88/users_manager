@@ -7,11 +7,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Role;
 use App\Traits\Gravatar;
+use App\Traits\Twitter;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use Gravatar;
+    use Twitter;
 
 
     /**

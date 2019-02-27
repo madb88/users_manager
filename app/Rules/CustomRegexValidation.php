@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class PasswordRegex implements Rule
+class CustomRegexValidation implements Rule
 {
 
 

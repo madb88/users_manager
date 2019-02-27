@@ -11,10 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('roles')->insert([
-        //     'name' => 'Administrator',
-        //     'email' => Str::random(10).'@gmail.com',
-        //     'password' => bcrypt('secret'),
-        // ]);
+        $this->call([
+            RolesTableSeeder::class,
+            UsersTableSeeder::class,
+        ]);
     }
 }

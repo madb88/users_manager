@@ -22,12 +22,14 @@
                <th>{{ $user->created_at }}</th>
 
                <th>
-                  {!! Html::linkAction("UserController@show", trans("users.view"), $user->id, array('class'=>'btn btn-success')) !!}
-                  {!! Html::linkAction("UserController@edit", trans("users.edit"), $user->id, array('class'=>'btn btn-primary')) !!}
-                  <button class="btn btn-danger delete-user" data-id="{{ $user->id }}" >{{trans('users.delete')}}</button>
+                  <div class="btn-group" role="group" aria-label="user actions">
+                     {!! Html::linkAction("UserController@show", trans("general.view"), $user->id, array('title'=>trans('general.view'),'class'=>'btn btn-success','data-toggle'=>'tooltip','data-placement'=>'top')) !!}
+                     {!! Html::linkAction("UserController@edit", trans("general.edit"), $user->id, array('title'=>trans('general.edit'),'class'=>'btn btn-warning','data-toggle'=>'tooltip','data-placement'=>'top')) !!}
+                     <button class="btn btn-danger delete-record" data-placement='top' data-route="users" data-toggle="tooltip" title="{{trans('general.delete')}}" data-id="{{ $user->id }}" >{{trans('general.delete')}}</button>
+                  </div>
                </th>
             </tr>
             @endforeach
          </tbody>
 </table>
- 
+

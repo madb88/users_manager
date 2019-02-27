@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
-use App\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +14,9 @@ use App\Role;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Role::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'role_id' => factory('App\Role')->create()->id,
-        'twitter_handle' => '@tests',
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => Str::random(10),
+        'password_policy' => $faker->asciify('*******')
     ];
 });

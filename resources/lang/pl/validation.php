@@ -1,16 +1,16 @@
 <?php
 
 return [
-    'required' => 'Pole :attribute jest wymagane.',
+    'required'      => 'Pole :attribute jest wymagane.',
 
     'attributes' => [
-        'name' => 'Imię',
-        'email' => 'Email',
-        'password'=> 'Hasło'
+        'name'      => 'Imię',
+        'email'     => 'Email',
+        'password'  => 'Hasło'
         
     ],
 
     'custom' => [
-        'password' => ':format'
+        'password'  => ':format'
     ]
 ];

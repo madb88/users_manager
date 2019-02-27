@@ -3,7 +3,7 @@
    <div class="album text-muted">
      <div class="container">
        <div class="row">
-           <h1>{{ trans('users.create')}}</h1>
+           <h1>{{ trans('general.user')}}</h1>
         </div>
         @if(isset($user['id']) && $user['id'] > 0)
             {!! Form::open(['action' => ['UserController@update', $user['id']], 'method'=>'PATCH']) !!}
@@ -40,7 +40,7 @@
             {!! Form::text('twitter_handle', isset($user['twitter_handle']) ? $user['twitter_handle']:'', array('class'=>'form-control')) !!}
             
             {!! Form::label('roles', trans('general.roles'),array('class'=>'control-label')) !!}
-            {!! Form::select('role', $roles, isset($user['role_id']) ? $user['role_id']:'', ['placeholder' => trans('users.choose_role') ]) !!}
+            {!! Form::select('role', $roles, isset($user['role_id']) ? $user['role_id']:'', ['placeholder' => trans('general.please_select') ]) !!}
 
 
             {!! Form::submit(trans('general.submit') ,array('class'=>'btn btn-success')) !!}
