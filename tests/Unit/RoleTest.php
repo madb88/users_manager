@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RoleTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
     /**
      * A basic test example.
      *

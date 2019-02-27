@@ -18,5 +18,7 @@ return [
     'delete'            => 'Delete',
     'password_policy'   => 'Password policy',
     'create'            => 'Create',
-    'user'              => 'User'
+    'user'              => 'User',
+    'role_updated'      => 'Role succesfully updated',
+    'user_updated'      => 'User succesfully updated'
 ];

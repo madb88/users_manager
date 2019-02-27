@@ -25,11 +25,10 @@
             @endif
 
             {!! Form::label('name', trans('general.name'),array('class'=>'control-label')) !!}
-            {!! Form::text('name', isset($role['name']) ? $role['name']:'', array('class'=>'form-control')) !!}
+            {!! Form::text('name', isset($role['name']) ? $role['name']:'', array('class'=>'form-control','placeholder'=> trans('general.name'))) !!}
 
             {!! Form::label('password_policy', trans('general.password_policy'),array('class'=>'control-label')) !!}
-            {!! Form::text('password_policy', isset($role['password_policy']) ? $role['password_policy']:'', array('class'=>'form-control')) !!}
-
+            {!! Form::text('password_policy', isset($role['password_policy']) ? $role['password_policy']:'', array('class'=>'form-control','placeholder'=> trans('general.password_policy'))) !!}
 
 
             {!! Form::submit(trans('general.submit') ,array('class'=>'btn btn-success')) !!}

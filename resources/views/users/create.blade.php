@@ -25,19 +25,19 @@
             @endif
 
             {!! Form::label('name', trans('general.name'),array('class'=>'control-label')) !!}
-            {!! Form::text('name', isset($user['name']) ? $user['name']:'', array('class'=>'form-control')) !!}
+            {!! Form::text('name', isset($user['name']) ? $user['name']:'', array('class'=>'form-control', 'placeholder'=>trans('general.name'))) !!}
 
             {!! Form::label('email', trans('general.email'),array('class'=>'control-label')) !!}
-            {!! Form::email('email', isset($user['email']) ? $user['email']:'', array('class'=>'form-control')) !!}
+            {!! Form::email('email', isset($user['email']) ? $user['email']:'', array('class'=>'form-control', 'placeholder'=>trans('general.email'))) !!}
 
             {!! Form::label('password', trans('general.password'),array('class'=>'control-label')) !!}
-            {!! Form::password('password',array('class'=>'form-control')) !!}
+            {!! Form::password('password',array('class'=>'form-control','placeholder'=>trans('general.password'))) !!}
 
             {!! Form::label('re_password', trans('general.re_password'),array('class'=>'control-label')) !!}
-            {!! Form::password('re_password', array('class'=>'form-control')) !!}
+            {!! Form::password('re_password', array('class'=>'form-control','placeholder'=>trans('general.re_password'))) !!}
 
             {!! Form::label('twitter_handle', trans('general.twitter_handle'),array('class'=>'control-label')) !!}
-            {!! Form::text('twitter_handle', isset($user['twitter_handle']) ? $user['twitter_handle']:'', array('class'=>'form-control')) !!}
+            {!! Form::text('twitter_handle', isset($user['twitter_handle']) ? $user['twitter_handle']:'', array('class'=>'form-control','placeholder'=>trans('general.twitter_handle'))) !!}
             
             {!! Form::label('roles', trans('general.roles'),array('class'=>'control-label')) !!}
             {!! Form::select('role', $roles, isset($user['role_id']) ? $user['role_id']:'', ['placeholder' => trans('general.please_select') ]) !!}

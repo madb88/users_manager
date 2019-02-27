@@ -6,7 +6,7 @@ return [
     'email'             => 'E-mail',
     'password'          => 'Hasło',
     're_password'       => 'Powtórz Hasło',
-    'twitter_handle'    => 'Twitter',
+    'twitter_handle'    => 'Twitter - nazwa użytkownik',
     'roles'             => 'Role',
     'role'              => 'Rola',
     'created'           => 'Utworzony',
@@ -18,5 +18,7 @@ return [
     'delete'            => 'Usuń',
     'password_policy'   => 'Zasady dotyczące hasła (Regex)',
     'create'            => 'Utwórz',
-    'user'              => 'Użytkownik'
+    'user'              => 'Użytkownik',
+    'role_updated'      => 'Rola została zaktualizowana',
+    'user_updated'      => 'Użytkownik został zaktualizowany'
 ];

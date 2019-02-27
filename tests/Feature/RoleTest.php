@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RoleTest extends TestCase
 {
+    use RefreshDatabase;
 
     public function test_can_see_role()
     {

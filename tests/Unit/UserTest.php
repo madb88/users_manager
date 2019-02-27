@@ -8,6 +8,7 @@ use Zend\Diactoros\Request;
 
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
 
     /**
      * A basic test example.
