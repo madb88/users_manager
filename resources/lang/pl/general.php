@@ -3,6 +3,7 @@
 return [
     'welcome'           => 'Witamy w aplikacji',
     'name'              => 'Imię',
+    'surname'           => 'Nazwisko',
     'email'             => 'E-mail',
     'password'          => 'Hasło',
     're_password'       => 'Powtórz Hasło',
@@ -20,5 +21,13 @@ return [
     'create'            => 'Utwórz',
     'user'              => 'Użytkownik',
     'role_updated'      => 'Rola została zaktualizowana',
-    'user_updated'      => 'Użytkownik został zaktualizowany'
+    'user_updated'      => 'Użytkownik został zaktualizowany',
+    'total'             =>  'Łącznie',
+    'role_name'         => 'Nazwa Roli',
+    'create_role'       => 'Stwórz Role',
+    'back'              => 'Wróć',
+    'no_role'           => 'Brak przypisanej roli',
+    'invalid_policy_regex' => 'Zasady odnośnie hasła muszą być przedstawione w postaci wyrażenia regularnego'
+
+
 ];

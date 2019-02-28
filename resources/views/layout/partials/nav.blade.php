@@ -1,21 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar nav-pills nav-justified navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">{{trans('menu.home')}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="nav navbar-nav">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/users">{{trans('menu.users')}}</a>
+          <a class="nav-link" href="{{route('users.index')}}">{{trans('menu.users')}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/roles">{{trans('menu.roles')}}</a>
-        </li>
-        <li class="nav-item">
-            {!! Form::open(['url' => array('lang_select'), 'method'=>'POST']) !!}
-                {{ Form::select('language', ['pl' => 'Polish', 'en' => 'English'], App::getLocale(), ['onchange'=>'this.form.submit()']) }}
-            {!! Form::close() !!}
+          <a class="nav-link" href="{{route('roles.index')}}">{{trans('menu.roles')}}</a>
         </li>
       </ul>
+      <li class="form-inline my-2 my-lg-0">
+          {!! Form::open(['url' => array('lang_select'), 'method'=>'POST']) !!}
+          {{Form::label('language', trans('menu.languages'), ['class'=>'menu-language'])}}
+
+          {{ Form::select('language', ['pl' => 'Polish', 'en' => 'English'], App::getLocale(), ['onchange'=>'this.form.submit()']) }}
+            {!! Form::close() !!}
+      </li>
     </div>
   </nav>

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', 'DashboardController@index');
+
+
 
 
 Route::post('lang_select', ['as' => 'lang_select', function(){

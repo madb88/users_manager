@@ -52,17 +52,24 @@ class UserController extends Controller
 
     public function store(User $user, Request $request)
     {
-
         $validateRules = $request->validate([
-            'name' => 'required|min:3',
+            'name' => 'required',
+            'surname' => 'required',
             'email' => 'required|email',
-            'twitter_handle' => new CustomRegexValidation('/^@+?([a-z0-9_]{1,15})$/i', trans('validation.custom.twitter_handle')),
+            'role' => 'required',
+            'password' => 'required',
+            'twitter_handle' => [
+                'nullable',
+                new CustomRegexValidation('/^@+?([a-z0-9_]{1,15})$/i', trans('validation.custom.twitter_handle'))
+            ],
         ]);
 
         $this->checkPasswordPolicy($request);
 
         $user->role()->associate(Role::where('id', $request->input('role'))->first());
+
         $user['name'] = $request->input('name');
+        $user['surname'] = $request->input('surname');
         $user['email'] = $request->input('email');
         $user['password'] = Hash::make($request->input('password'));
         $user['twitter_handle'] = !empty($request->input('twitter_handle'))?$request->input('twitter_handle'):'';
@@ -90,9 +97,21 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
+        $validateRules = $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required|email',
+            'role' => 'required',
+            'twitter_handle' => [
+                'nullable',
+                new CustomRegexValidation('/^@+?([a-z0-9_]{1,15})$/i', trans('validation.custom.twitter_handle'))
+            ],
+        ]);
+
         $user = User::find($id);
 
         $user['name'] = $request->input('name');
+        $user['surname'] = $request->input('surname');
         $user['email'] = $request->input('email');
         $user['twitter_handle'] = $request->input('twitter_handle');
         $user->role()->associate(Role::where('id', $request->input('role'))->first());
@@ -100,9 +119,8 @@ class UserController extends Controller
         if(!empty($request->input('password'))){
             $this->checkPasswordPolicy($request);
             $user['password'] = Hash::make($request->input('password'));
-
         }
-        
+
         $result = $user->save();
 
         if($result){

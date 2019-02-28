@@ -3,5 +3,6 @@
 return [
     'home'  => 'Home Page',
     'users' => 'Users',
-    'roles' => 'Roles'
+    'roles' => 'Roles',
+    'languages' => 'Languages'
 ];

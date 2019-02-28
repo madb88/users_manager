@@ -3,5 +3,7 @@
 return [
     'home'  => 'Strona Główna',
     'users' => 'Użytkownicy',
-    'roles' => 'Role'
+    'roles' => 'Role',
+    'languages' => 'Języki'
+
 ];

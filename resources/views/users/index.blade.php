@@ -10,13 +10,8 @@
                    </button>
             </div>
          @endif
-       <div class="row">
-           @lang('users.users')
-        </div>
-        <div>
-
-            {!! Html::linkAction("UserController@create", trans("users.create"), null, array('class'=>'btn btn-success')) !!}
-
+        <div class="d-flex justify-content-end create-button">
+            {!! Html::linkAction("UserController@create", trans("users.create_user"), null, array('class'=>'btn btn-lg btn-success')) !!}
         </div>
 
         <div class="container">

@@ -5,3 +5,32 @@
     z-index: 1030;
 }
 
+.d-flex.justify-content-end.create-button {
+    margin-bottom: 4%;
+}
+
+p.head {
+    font-size: 1.5em;
+    color: #325F81;
+    padding-left: 1em;
+}
+
+p.subtext {
+    padding-left: 1em;
+    font-size: 1.5em;
+
+}
+
+.cell {
+    padding: 6.25rem !important;
+}
+
+
+label.menu-language {
+    float: left;
+    padding-right: 0.5em;
+}
+
+.submit-form-button{
+    margin-top:10%; 
+}

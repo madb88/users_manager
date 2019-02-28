@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use Illuminate\Http\Request;
+use App\Rules\ValidPasswordPolicy;
 
 class RoleController extends Controller
 {
@@ -47,11 +48,12 @@ class RoleController extends Controller
     {
         $validateRules = $request->validate([
             'name' => 'required',
-            'password_policy' => 'required'
+            'password_policy' => ['required', new ValidPasswordPolicy]
         ]);
 
-        $role['name'] = $request->input('name');
         $role['password_policy'] = $request->input('password_policy');
+        $role['name'] = $request->input('name');
+
 
         $result = $role->save();
 
@@ -71,7 +73,6 @@ class RoleController extends Controller
     public function show($id)
     {
         $role = Role::find($id);
-
         return view('roles.show', compact('role'));
     }
 
@@ -83,9 +84,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        
-        $role = Role::find($id);
 
+        $role = Role::find($id);
         return view('roles.create', compact('role'));
     }
 
@@ -125,4 +125,15 @@ class RoleController extends Controller
             'success' => 'Role deleted'
         ]);
     }
+
+    private function checkIfPolicyIsValid($policyRegex){
+        try {
+            preg_match($policyRegex, '');
+        } catch (\Throwable $exception) {
+            return false;
+        }
+
+        return true;
+    }
+
 }

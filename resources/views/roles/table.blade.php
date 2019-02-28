@@ -1,7 +1,5 @@
-<div class="d-flex justify-content-end">
-    {!! $roles->render() !!}
-</div>
-<table class="table">
+
+<table class="table table-striped table-responsive-md">
         <thead>
            <tr>
                <th>{{trans('general.name')}}</th>
@@ -20,9 +18,9 @@
 
 
                <th>
-                  <div class="btn-group" role="group" aria-label="user actions">
+                  <div class="btn btn-group-justified" role="group" aria-label="user actions">
                      {!! Html::linkAction("RoleController@show", trans("general.view"), $role->id, array('title'=>trans('general.view'),'class'=>'btn btn-success','data-toggle'=>'tooltip','data-placement'=>'top')) !!}
-                     {!! Html::linkAction("RoleController@edit", trans("general.edit"), $role->id, array('title'=>trans('general.edit'),'class'=>'btn btn-warning','data-toggle'=>'tooltip','data-placement'=>'top')) !!}
+                     {!! Html::linkAction("RoleController@edit", trans("general.edit"), $role->id, array('title'=>trans('general.edit'),'class'=>'btn btn-info','data-toggle'=>'tooltip','data-placement'=>'top')) !!}
                      <button class="btn btn-danger delete-record" data-placement='top' data-route="roles" data-toggle="tooltip" title="{{trans('general.delete')}}" data-id="{{ $role->id }}" >{{trans('general.delete')}}</button>
                   </div>
                </th>
@@ -30,4 +28,8 @@
             @endforeach
          </tbody>
 </table>
+
+@include('layout.partials.pagination', ['data'=>$roles])
+
+
 

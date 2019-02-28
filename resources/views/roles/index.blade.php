@@ -10,13 +10,9 @@
                    </button>
             </div>
          @endif
-       <div class="row">
-           @lang('general.roles')
-        </div>
-        <div>
 
-            {!! Html::linkAction("RoleController@create", trans("general.create"), null, array('class'=>'btn btn-success')) !!}
-
+        <div class="d-flex justify-content-end create-button">
+            {!! Html::linkAction("RoleController@create", trans("general.create_role"), null, array('class'=>'btn btn-lg btn-success')) !!}
         </div>
 
         <div class="container">
