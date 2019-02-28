@@ -4,7 +4,7 @@ namespace App\Traits;
 trait Twitter {
 
     /**
-     * The attribute name containing the email address.
+     * The attribute name containing the twitter handle.
      *
      * @var string
      */
