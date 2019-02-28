@@ -28,5 +28,3 @@ Route::post('lang_select', ['as' => 'lang_select', function(){
 Route::resource('users', 'UserController');
 Route::resource('roles', 'RoleController');
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
