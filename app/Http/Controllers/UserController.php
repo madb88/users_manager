@@ -52,19 +52,7 @@ class UserController extends Controller
 
     public function store(User $user, Request $request)
     {
-        $validateRules = $request->validate([
-            'name' => 'required',
-            'surname' => 'required',
-            'email' => 'required|email',
-            'role' => 'required',
-            'password' => 'required',
-            'twitter_handle' => [
-                'nullable',
-                new CustomRegexValidation('/^@+?([a-z0-9_]{1,15})$/i', trans('validation.custom.twitter_handle'))
-            ],
-        ]);
-
-        $this->checkPasswordPolicy($request);
+        $this->validateStoreInputs($request);
 
         $user->role()->associate(Role::where('id', $request->input('role'))->first());
 
@@ -97,16 +85,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
-        $validateRules = $request->validate([
-            'name' => 'required',
-            'surname' => 'required',
-            'email' => 'required|email',
-            'role' => 'required',
-            'twitter_handle' => [
-                'nullable',
-                new CustomRegexValidation('/^@+?([a-z0-9_]{1,15})$/i', trans('validation.custom.twitter_handle'))
-            ],
-        ]);
+        $this->validateUpdateInputs($request);
 
         $user = User::find($id);
 
@@ -156,7 +135,45 @@ class UserController extends Controller
         $request->validate([
             'password' => [
                 'required',
+                'confirmed',
                 new CustomRegexValidation($role['password_policy'], $role['name'] == 'Admin'?trans('users.admin_password_check'):trans('users.user_password_check'))
+            ]
+        ]);
+    }
+
+    private function validateStoreInputs($request): void
+    {
+        $role = Role::find($request->input('role'));
+
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required|email|unique:users',
+            'role' => 'required',
+            'twitter_handle' => [
+                'nullable',
+                new CustomRegexValidation('/^@+?([a-z0-9_]{1,15})$/i', trans('validation.custom.twitter_handle'))
+            ],
+            'password' => [
+                'required',
+                'confirmed',
+                new CustomRegexValidation($role['password_policy'], $role['name'] == 'Admin'?trans('users.admin_password_check'):trans('users.user_password_check'))
+            ]
+        ]);
+    }
+
+    private function validateUpdateInputs($request): void
+    {
+        $role = Role::find($request->input('role'));
+
+        $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required|email|unique:users',
+            'role' => 'required',
+            'twitter_handle' => [
+                'nullable',
+                new CustomRegexValidation('/^@+?([a-z0-9_]{1,15})$/i', trans('validation.custom.twitter_handle'))
             ]
         ]);
     }

@@ -15,10 +15,7 @@ class RoleController extends Controller
      */
     public function index(Role $role, Request $request)
     {
-        
         $roles = Role::orderBy('created_at', 'desc')->paginate(5);
-
-        
 
         if($request->ajax()){
             return view('roles.table', compact('roles'));
@@ -34,7 +31,6 @@ class RoleController extends Controller
      */
     public function create()
     {
-
         return view('roles.create');
     }
 
@@ -46,14 +42,10 @@ class RoleController extends Controller
      */
     public function store(Request $request, Role $role)
     {
-        $validateRules = $request->validate([
-            'name' => 'required',
-            'password_policy' => ['required', new ValidPasswordPolicy]
-        ]);
+        $this->validateInputs($request);
 
         $role['password_policy'] = $request->input('password_policy');
         $role['name'] = $request->input('name');
-
 
         $result = $role->save();
 
@@ -98,6 +90,8 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validateInputs($request);
+
         $role = Role::find($id);
 
         $role['name'] = $request->input('name');
@@ -126,14 +120,12 @@ class RoleController extends Controller
         ]);
     }
 
-    private function checkIfPolicyIsValid($policyRegex){
-        try {
-            preg_match($policyRegex, '');
-        } catch (\Throwable $exception) {
-            return false;
-        }
-
-        return true;
+    private function validateInputs($request): void
+    {
+        $request->validate([
+            'name' => 'required',
+            'password_policy' => ['required', new ValidPasswordPolicy]
+        ]);
     }
 
 }

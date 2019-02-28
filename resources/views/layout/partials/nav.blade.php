@@ -1,5 +1,5 @@
 <nav class="navbar nav-pills nav-justified navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">{{trans('menu.home')}}</a>
+    <a class="navbar-brand menu-item-home" href="/">{{trans('menu.home')}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{route('users.index')}}">{{trans('menu.users')}}</a>
+          <a class="nav-link menu-item" href="{{route('users.index')}}">{{trans('menu.users')}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('roles.index')}}">{{trans('menu.roles')}}</a>
+          <a class="nav-link menu-item" href="{{route('roles.index')}}">{{trans('menu.roles')}}</a>
         </li>
       </ul>
       <li class="form-inline my-2 my-lg-0">

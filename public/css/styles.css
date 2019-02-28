@@ -25,7 +25,6 @@ p.subtext {
     padding: 6.25rem !important;
 }
 
-
 label.menu-language {
     float: left;
     padding-right: 0.5em;
@@ -33,4 +32,19 @@ label.menu-language {
 
 .submit-form-button{
     margin-top:10%; 
+}
+
+.menu-item {
+    font-size: 1.2em;
+    margin-left: 0.5em;
+}
+
+.menu-item-home {
+    font-size: 2em;
+    margin-left: 0.5em;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: #3490dc !important;
+    color: #ffff !important;
 }

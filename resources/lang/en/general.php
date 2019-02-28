@@ -10,7 +10,7 @@ return [
     'created'           => 'Created',
     'actions'           => 'Actions',
     'password'          => 'Password',
-    're_password'       => 'Repeat Password',
+    'password_confirmation'  => 'Repeat Password',
     'roles'             => 'Roles',
     'please_select'     => 'Please select',
     'submit'            => 'Submit',
@@ -31,5 +31,9 @@ return [
     'create_role'       => 'Create Role',
     'back'              => 'Back',
     'no_role'           => 'No role assigned',
-    'invalid_policy_regex' => 'Invalid Policy Password Regex'
+    'invalid_policy_regex' => 'Invalid Policy Password Regex',
+    'update_user'           => 'Update user',
+    'update_role'           => 'Update role',
+    'user_created'          => 'User created',
+
 ];

@@ -6,7 +6,7 @@ return [
     'surname'           => 'Nazwisko',
     'email'             => 'E-mail',
     'password'          => 'Hasło',
-    're_password'       => 'Powtórz Hasło',
+    'password_confirmation'       => 'Powtórz Hasło',
     'twitter_handle'    => 'Twitter - nazwa użytkownik',
     'roles'             => 'Role',
     'role'              => 'Rola',
@@ -27,7 +27,11 @@ return [
     'create_role'       => 'Stwórz Role',
     'back'              => 'Wróć',
     'no_role'           => 'Brak przypisanej roli',
-    'invalid_policy_regex' => 'Zasady odnośnie hasła muszą być przedstawione w postaci wyrażenia regularnego'
+    'invalid_policy_regex'  => 'Zasady odnośnie hasła muszą być przedstawione w postaci wyrażenia regularnego',
+    'user_created'          => 'Użytkownik zostal utworzony',
+    'update_user'           => 'Zaktualizuj użytkownika',
+    'update_role'           => 'Zaktualizuj role',
+    
 
 
 ];
