@@ -18,6 +18,7 @@ use App\Role;
 $factory->define(App\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'surname' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'role_id' => factory('App\Role')->create()->id,
         'twitter_handle' => '@tests',

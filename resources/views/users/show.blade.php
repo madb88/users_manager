@@ -22,7 +22,7 @@
                         <p class="subtext">{{ $user->created_at }}</p>
 
                         <p class="head">{{trans('general.role')}}</p>
-                        <p class="subtext">{{ $user->role->name }}</p>
+                        <p class="subtext">{{ !empty($user->role->name)?$user->role->name:trans('general.no_role') }}</p>
 
                         <div class="text-right">
                             {!! Html::linkAction("UserController@edit", trans("general.edit"), $user->id, array('title'=>trans('general.edit'),'class'=>'btn btn-outline-primary','data-toggle'=>'tooltip','data-placement'=>'top')) !!}

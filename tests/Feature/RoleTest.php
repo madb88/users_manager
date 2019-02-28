@@ -16,7 +16,7 @@ class RoleTest extends TestCase
         $response->assertSee($role->name);
     }
 
-    public function test_can_see_users()
+    public function test_can_see_roles()
     {
         $role = factory('App\Role')->create();
         $response = $this->get('roles/');
