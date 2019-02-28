@@ -31,6 +31,9 @@ return [
     'user_created'          => 'Użytkownik zostal utworzony',
     'update_user'           => 'Zaktualizuj użytkownika',
     'update_role'           => 'Zaktualizuj role',
+    'add_roles'             => 'Upewnij się czy dostępne są role dla użytkowników',
+    'role_created'          => 'Rola została utworzona'
+
     
 
 

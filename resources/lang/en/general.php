@@ -35,5 +35,6 @@ return [
     'update_user'           => 'Update user',
     'update_role'           => 'Update role',
     'user_created'          => 'User created',
+    'add_roles'             => 'First add roles for users'
 
 ];

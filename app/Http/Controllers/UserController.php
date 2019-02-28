@@ -20,14 +20,16 @@ class UserController extends Controller
     {
 
         $users = User::orderBy('created_at', 'desc')->paginate(5);
+        
         $roles = Role::all()->keyBy('id')->toArray();
         $roles = $this->prepareRoles($roles);
-
+        $noRoles = !empty($roles)?false:true;
+        
         if($request->ajax()){
-            return view('users.table', compact('users','roles'));
+            return view('users.table', compact('users','roles','noRoles'));
         }
 
-        return view('users.index', compact('users','roles'));
+        return view('users.index', compact('users','roles','noRoles'));
     }
 
 
@@ -36,6 +38,9 @@ class UserController extends Controller
 
         $roles = Role::all()->keyBy('id')->toArray();
         $roles = $this->prepareRoles($roles);
+        if(empty($roles)){
+            return redirect('/users')->with('danger', trans('general.add_roles'));
+        }
 
         return view('users.create', compact('roles'));
 
