@@ -17,8 +17,13 @@ trait Gravatar {
      */
     public function getGravatarAttribute()
     {
+
+        $gravatarLink = "https://www.gravatar.com/avatar/";
         $hash = md5(strtolower(trim($this->attributes[$this->gravatarEmail])));
-        return "https://www.gravatar.com/avatar/$hash";
+        
+        $link = $gravatarLink.$hash;
+
+        return $link;
     }
 
 }
