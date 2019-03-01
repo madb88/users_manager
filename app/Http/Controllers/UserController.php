@@ -173,7 +173,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'role' => 'required',
             'twitter_handle' => [
                 'nullable',
